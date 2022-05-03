@@ -65,3 +65,8 @@ img {
   text-decoration: none;
   color: black;
 }
+.form-control:focus,
+.btn:focus {
+  box-shadow: none;
+  outline: none;
+}
