@@ -40,17 +40,14 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 16px;
-  line-height: 1.8;
+  font-size: 15px;
+  line-height: 2;
 }
 
 .overview {
   margin-bottom: 30px;
 }
 
-img {
-  float: left;
-}
 .temperature {
   text-decoration: none;
   font-size: 70px;
@@ -81,4 +78,26 @@ img {
 .btn:focus {
   box-shadow: none;
   outline: none;
+}
+
+.weather-forecast-day {
+  padding-right: 0;
+  opacity: 0.7;
+}
+
+.weather-forecast-img {
+  padding-left: 0;
+}
+
+.weather-forecast-img img {
+  float: left;
+}
+
+.weather-forecast-temp {
+  padding-left: 18px;
+  padding-right: 20px;
+}
+
+.weather-forecast-temp-min {
+  opacity: 0.7;
 }
