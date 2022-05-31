@@ -99,5 +99,10 @@ li {
 }
 
 .weather-forecast-temp-min {
+  padding-left: 10px;
+  opacity: 0.7;
+}
+
+.weather-information {
   opacity: 0.7;
 }
