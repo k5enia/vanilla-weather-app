@@ -37,7 +37,43 @@ function handleSubmit(event) {
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
-  forecastElement.innerHTML = "forecast";
+  let days = ["Tue", "Wed", "Thur", "Fri", "Sat"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+        <div class="col-4 weather-forecast-day left-panel">
+          <ul>
+            <li>${day}</li>
+          </ul>
+        </div>
+        <div class="col-2 weather-forecast-img left-panel">
+          <ul>
+            <li>
+              <img
+                src="http://openweathermap.org/img/wn/01d@2x.png"
+                alt=""
+                width="30"
+              />
+            </li>
+          </ul>
+        </div>
+        <div class="col-6 weather-forecast-temp left-panel">
+          <ul>
+            <li>
+              <span class="weather-forecast-temp-max">21°</span
+              ><span class="weather-forecast-temp-min">18°</span>
+            </li>
+          </ul>
+        </div>
+      
+      `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
 }
 
 function displayTemperature(response) {
