@@ -21,6 +21,14 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function search(city) {
   let apiKey = "543f7a4d5a3d4a7cc135767b129715c9";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -36,25 +44,28 @@ function handleSubmit(event) {
 
 function displayForecast(response) {
   console.log(response.data.daily);
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Tue", "Wed", "Thur", "Fri", "Sat"];
-
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
         <div class="col-4 weather-forecast-day left-panel">
           <ul>
-            <li>${day}</li>
+            <li>${formatDay(forecastDay.dt)}</li>
           </ul>
         </div>
         <div class="col-2 weather-forecast-img left-panel">
           <ul>
             <li>
               <img
-                src="http://openweathermap.org/img/wn/01d@2x.png"
+                src="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png"
                 alt=""
                 width="30"
               />
@@ -64,13 +75,18 @@ function displayForecast(response) {
         <div class="col-6 weather-forecast-temp left-panel">
           <ul>
             <li>
-              <span class="weather-forecast-temp-max">21°</span
-              ><span class="weather-forecast-temp-min">18°</span>
+              <span class="weather-forecast-temp-max">${Math.round(
+                forecastDay.temp.max
+              )}°</span
+              ><span class="weather-forecast-temp-min">${Math.round(
+                forecastDay.temp.min
+              )}°</span>
             </li>
           </ul>
         </div>
       
       `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -87,6 +103,8 @@ function displayTemperature(response) {
   let minTemperatureElement = document.querySelector("#min-temperature");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+
+  console.log(response.data);
 
   celsiusTemp = response.data.main.temp;
   celsiusLow = response.data.main.temp_min;
