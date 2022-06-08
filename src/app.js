@@ -46,6 +46,12 @@ function displayForecast(response) {
   console.log(response.data.daily);
   let forecast = response.data.daily;
 
+  let maxTemperatureElement = document.querySelector("#max-temperature");
+  let minTemperatureElement = document.querySelector("#min-temperature");
+
+  maxTemperatureElement.innerHTML = Math.round(forecast[0].temp.max);
+  minTemperatureElement.innerHTML = Math.round(forecast[0].temp.min);
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -99,8 +105,6 @@ function displayTemperature(response) {
   let feelsLikeElement = document.querySelector("#feels-like");
   let humiditiyElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  let maxTemperatureElement = document.querySelector("#max-temperature");
-  let minTemperatureElement = document.querySelector("#min-temperature");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
   let celsiusLow = null;
@@ -119,8 +123,6 @@ function displayTemperature(response) {
   feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
   humiditiyElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  maxTemperatureElement.innerHTML = Math.round(response.data.main.temp_max);
-  minTemperatureElement.innerHTML = Math.round(response.data.main.temp_min);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
