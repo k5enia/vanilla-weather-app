@@ -103,6 +103,9 @@ function displayTemperature(response) {
   let minTemperatureElement = document.querySelector("#min-temperature");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+  let celsiusLow = null;
+  let celsiusHigh = null;
+  let celsiusTemp = null;
 
   console.log(response.data);
 
@@ -135,53 +138,7 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-function displayFahrenheitTemp(event) {
-  event.preventDefault();
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-
-  let feelsLikeElement = document.querySelector("#feels-like");
-  feelsLikeElement.innerHTML = Math.round(fahrenheitTemp);
-
-  let fahrenheitLow = (celsiusLow * 9) / 5 + 32;
-  let fahrenheitLowElement = document.querySelector("#min-temperature");
-  fahrenheitLowElement.innerHTML = Math.round(fahrenheitLow);
-
-  let fahrenheitHigh = (celsiusHigh * 9) / 5 + 32;
-  let fahrenheitHighElement = document.querySelector("#max-temperature");
-  fahrenheitHighElement.innerHTML = Math.round(fahrenheitHigh);
-}
-
-function displayCelsiusTemp(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
-  let feelsLikeElement = document.querySelector("#feels-like");
-  feelsLikeElement.innerHTML = Math.round(celsiusTemp);
-
-  let celsiusLowElement = document.querySelector("#min-temperature");
-  celsiusLowElement.innerHTML = Math.round(celsiusLow);
-
-  let celsiusHighElement = document.querySelector("#max-temperature");
-  celsiusHighElement.innerHTML = Math.round(celsiusHigh);
-}
-
-let celsiusLow = null;
-let celsiusHigh = null;
-let celsiusTemp = null;
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 search("Sydney");

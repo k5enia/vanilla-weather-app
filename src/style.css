@@ -57,21 +57,7 @@ li {
 .temp-units {
   position: relative;
   top: -37px;
-}
-
-.temp-units a:link {
-  text-decoration: none;
-}
-
-.active {
-  text-decoration: none;
   color: #000;
-  cursor: default;
-}
-
-.active:hover {
-  text-decoration: none;
-  color: black;
 }
 
 .form-control:focus,
