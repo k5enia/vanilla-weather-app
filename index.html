@@ -27,7 +27,8 @@
   <body>
     <div class="container">
       <div class="weather-app-wrapper">
-        <div class="weather-app">
+        <div class="weather-app" id="weather-app">
+          <h6 id="date"></h6>
           <form id="search-form" class="mb-4">
             <div class="row">
               <div class="col-9">
@@ -43,13 +44,12 @@
                 <input
                   type="submit"
                   value="search"
-                  class="btn btn-primary w-100"
+                  class="btn btn-dark w-100"
                 />
               </div>
             </div>
           </form>
           <div class="overview">
-            <h6 id="date"></h6>
             <h1 id="city"></h1>
             <h5 id="description"></h5>
           </div>
@@ -57,7 +57,7 @@
             <div class="col-6">
               <img src="" id="icon" alt="" width="150px" />
             </div>
-            <div class="col-6">
+            <div class="col-6 temperature-details">
               <span class="temperature" id="temperature"></span>
               <span class="temp-units">°C</span>
               <div>
@@ -67,8 +67,8 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-6" id="forecast"></div>
+          <div class="row forecast">
+            <div class="col-6 forecast-left" id="forecast"></div>
             <div class="col-6">
               <div class="row">
                 <div class="col-6 weather-information">

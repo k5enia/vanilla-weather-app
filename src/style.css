@@ -9,26 +9,32 @@ body {
 
 .weather-app {
   padding: 35px;
-  border: 1px solid rgb(207, 207, 207);
+  border: 1px solid rgb(255, 255, 255);
   border-radius: 10px;
+  background-image: url("rain.png");
 }
 
-h1 {
+#city {
   text-align: center;
   font-size: 45px;
   line-height: 1;
+  color: #ffff;
 }
 
-h5 {
+#description {
   text-align: center;
   font-weight: 500;
+  color: #ffff;
 }
 
-h6 {
+#date {
   text-align: center;
   line-height: 1;
-  margin-bottom: auto;
-  font-weight: 400;
+  margin-top: -15px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #ffff;
+  opacity: 0.8;
 }
 
 ul {
@@ -47,6 +53,9 @@ li {
 .overview {
   margin-bottom: 30px;
 }
+.temperature-details {
+  color: #ffff;
+}
 
 .temperature {
   text-decoration: none;
@@ -57,7 +66,21 @@ li {
 .temp-units {
   position: relative;
   top: -37px;
-  color: #000;
+}
+.form-control {
+  color: black;
+  opacity: 0.7;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 10px;
+}
+
+.btn {
+  background-color: rgb(36, 121, 57);
+  color: rgb(255, 255, 255, 1);
+  opacity: 0.6;
+  border-radius: 10px;
+  border-color: rgba(36, 121, 57, 0.7);
 }
 
 .form-control:focus,
@@ -65,10 +88,18 @@ li {
   box-shadow: none;
   outline: none;
 }
+.forecast-left {
+  color: #ffff;
+}
+.forecast {
+  background-color: rgba(202, 223, 255, 0.445);
+  border: none;
+  border-radius: 8px;
+  color: #ffff;
+}
 
 .weather-forecast-day {
   padding-right: 0;
-  opacity: 0.7;
 }
 
 .weather-forecast-img {
@@ -81,14 +112,9 @@ li {
 
 .weather-forecast-temp {
   padding-left: 18px;
-  padding-right: 20px;
+  padding-right: 25px;
 }
 
 .weather-forecast-temp-min {
   padding-left: 10px;
-  opacity: 0.7;
-}
-
-.weather-information {
-  opacity: 0.7;
 }
