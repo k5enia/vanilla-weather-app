@@ -144,12 +144,6 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-function forecastBackground() {
-  let forecastChangingBackground = document.querySelector("#weather-app");
-
-  forecastChangingBackground.body.style.backgroundColor = "red";
-}
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
