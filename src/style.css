@@ -11,8 +11,8 @@ body {
   padding: 35px;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 10px;
-  background-image: url("");
-  transition: background-image 300ms;
+  background-image: url("plain_background1.png");
+  transition: background-image ease-in-out 750ms;
 }
 
 #city {
@@ -93,10 +93,14 @@ li {
   color: #ffff;
 }
 .forecast {
-  background-color: rgba(202, 223, 255, 0.445);
   border: none;
   border-radius: 8px;
   color: #ffff;
+}
+
+#forecast-row {
+  background-color: rgba(68, 46, 150, 0.4);
+  transition: ease-in-out 750ms;
 }
 
 .weather-forecast-day {

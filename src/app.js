@@ -95,9 +95,47 @@ function changeBackground(response) {
   if (iconId === "01d") {
     document.getElementById("weather-app").style.backgroundImage =
       "url(src/clear_day.png)";
-  } else if ((iconId = "10d")) {
+    document.getElementById("forecast-row").style.backgroundColor =
+      "rgba(203, 127, 78, 0.4)";
+  } else if (iconId === "01n") {
+    document.getElementById("weather-app").style.backgroundImage =
+      "url(src/clear_night.png)";
+    document.getElementById("forecast-row").style.backgroundColor =
+      "rgba(68, 46, 150, 0.4)";
+  } else if (iconId === "50d" || iconId === "50n") {
+    document.getElementById("weather-app").style.backgroundImage =
+      "url(src/atmosphere.png)";
+    document.getElementById("forecast-row").style.backgroundColor =
+      "rgba(184, 104, 83, 0.4)";
+  } else if (
+    iconId === "09d" ||
+    iconId === "09n" ||
+    iconId === "10d" ||
+    iconId === "10n" ||
+    iconId === "11d" ||
+    iconId === "11n"
+  ) {
     document.getElementById("weather-app").style.backgroundImage =
       "url(src/rain.png)";
+    document.getElementById("forecast-row").style.backgroundColor =
+      "rgba(94, 140, 168, 0.4)";
+  } else if (
+    iconId === "02d" ||
+    iconId === "02n" ||
+    iconId === "03d" ||
+    iconId === "03n" ||
+    iconId === "04d" ||
+    iconId === "04n"
+  ) {
+    document.getElementById("weather-app").style.backgroundImage =
+      "url(src/clouds.png)";
+    document.getElementById("forecast-row").style.backgroundColor =
+      "rgba(94, 140, 168, 0.4)";
+  } else if (iconId === "13d" || "13n") {
+    document.getElementById("weather-app").style.backgroundImage =
+      "url(src/snow.png)";
+    document.getElementById("forecast-row").style.backgroundColor =
+      "rgba(116, 164, 194, 0.4)";
   }
 
   console.log(iconId);
