@@ -87,6 +87,30 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
+//
+
+function changeBackground(response) {
+  let iconId = response.data.current.weather[0].icon;
+
+  if (iconId === "01d") {
+    document.getElementById("weather-app").style.backgroundImage =
+      "url(src/clear_day.png)";
+  } else if ((iconId = "10d")) {
+    document.getElementById("weather-app").style.backgroundImage =
+      "url(src/rain.png)";
+  }
+
+  console.log(iconId);
+}
+
+function getIcon(coordinates) {
+  let apiKey = "543f7a4d5a3d4a7cc135767b129715c9";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(changeBackground);
+  console.log(apiUrl);
+}
+
 //Display temperature response
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
@@ -121,6 +145,7 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   getForecast(response.data.coord);
+  getIcon(response.data.coord);
 }
 
 //API, searches & axios
