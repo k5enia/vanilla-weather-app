@@ -13,7 +13,7 @@ body {
   border-radius: 10px;
   background-image: url("plain_background1.png");
   transition: background-image ease-in-out 700ms;
-  box-shadow: 8px 6px 3px rgba(206, 206, 206, 0.3);
+  box-shadow: 8px 8px 12px rgba(206, 206, 206);
 }
 
 #city {
@@ -124,10 +124,6 @@ li {
 
 .weather-forecast-img img {
   float: left;
-}
-
-img .weather-image {
-  transition: 600ms;
 }
 
 .weather-forecast-temp {
